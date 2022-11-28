@@ -44,7 +44,7 @@ artifacts:
     - 'Rakefile'
     - 'app/**/*'
     - 'config/**/*'
-    - 'db/**/*'
+    - 'db/*'
     - 'log/**/*'
     - 'public/**/*'
     - 'vendor/**/*'
