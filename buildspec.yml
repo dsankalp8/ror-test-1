@@ -9,12 +9,20 @@ phases:
       - pip3 install --upgrade awscli
 
       # Install Ruby dependencies from the Gemfile.
-      - bundle install
+      - gem bundle install
+      - gem install rails
+      - sudo apt-get install postgresql postgresql-contrib libpq-dev
+      - sudo -u postgres createuser $USER
+
+
 
   pre_build:
     commands:
       # Set the SECRET_KEY_BASE environment variable for running tests
       - export SECRET_KEY_BASE=$(rake secret)
+      
+      - rails db:migrate
+
 
       # Run the tests using RSpec.
       - bundle exec rspec
